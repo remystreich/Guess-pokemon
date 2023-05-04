@@ -2,7 +2,7 @@
 let score = 0
 let goal =""
 async function displayPoke() {
-    let randomId =  Math.floor(Math.random() * 350);
+    let randomId =  Math.floor(Math.random() * 898);
     let pokemons = await fetch(`https://pokebuildapi.fr/api/v1/pokemon/${randomId}`);
     pokemons = await pokemons.json();
     console.log(pokemons);
@@ -20,15 +20,16 @@ displayPoke()
 function submitChoice() {
     let guess = document.getElementById('pokeName').value.toUpperCase()
     if (goal== guess) {
+        document.getElementById('result').className = "text-success"
         document.getElementById('result').innerText = "Gagné"
         score++
         document.getElementById('score').innerText = "Score : " +score
-        document.getElementById('result').classList.add('text-success')
         
     }
     else {
         document.getElementById('result').innerText = "Perdu"
-        document.getElementById('result').classList.add('text-danger')   
+        document.getElementById('result').className='text-danger'
+
     }
 displayPoke();   
 }
