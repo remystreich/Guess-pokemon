@@ -40,3 +40,10 @@ input.addEventListener("keypress", function(event) {
       submitChoice()
     }
   });
+
+  async function test() {
+    let test = await fetch('http://127.0.0.1:3000/')
+    test = await test.text()
+    console.log(test);
+  }
+  test()
